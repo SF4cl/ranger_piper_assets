@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mujoco model="ranger_piper_scene">
+  <include file="robot.xml" />
+  <visual>
+    <global offwidth="1600" offheight="1200" />
+    <headlight ambient=".5 .5 .5" diffuse=".8 .8 .8" />
+  </visual>
+  <asset>
+    <texture name="grid" type="2d" builtin="checker" rgb1=".18 .21 .25" rgb2=".24 .28 .32" width="512" height="512" />
+    <material name="floor_mat" texture="grid" texrepeat="12 12" reflectance=".05" />
+  </asset>
+  <worldbody>
+    <light pos="1 -2 4" dir="-.3 .3 -1" diffuse=".8 .8 .8" />
+    <geom name="ground" type="plane" size="10 10 .1" material="floor_mat" friction="1 .005 .0001" />
+  </worldbody>
+</mujoco>

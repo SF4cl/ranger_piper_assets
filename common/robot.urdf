@@ -1,0 +1,1517 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="ranger_air_piper_x_v1">
+  <link name="ranger_base_link">
+    <collision>
+      <origin xyz="0 0 0.17" rpy="0 0 0" />
+      <geometry>
+        <box size="0.54 0.31 0.15" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0.14" rpy="0 0 0" />
+      <mass value="46.22103074569662" />
+      <inertia ixx="0.8027052339502648" iyy="1.3515799740554124" izz="1.781435559990391" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_base_link_00.obj" />
+      </geometry>
+      <material name="ranger_base_link_00">
+        <color rgba="0.172549 0.172549 0.172549 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_base_link_01.obj" />
+      </geometry>
+      <material name="ranger_base_link_01">
+        <color rgba="0.498039 0.498039 0.498039 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_base_link_02.obj" />
+      </geometry>
+      <material name="ranger_base_link_02">
+        <color rgba="0.905882 0.905882 0.905882 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_base_link_03.obj" />
+      </geometry>
+      <material name="ranger_base_link_03">
+        <color rgba="0.964706 0.176471 0.176471 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_base_link_04.obj" />
+      </geometry>
+      <material name="ranger_base_link_04">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_base_link_05.obj" />
+      </geometry>
+      <material name="ranger_base_link_05">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <link name="ranger_imu_link">
+    <inertial>
+      <origin xyz="-7.51173708920111E-05 7.51173708920406E-05 0.00149999999999999" rpy="0 0 0" />
+      <mass value="0.000426" />
+      <inertia ixx="5.32909624413146E-09" ixy="-1.72403755868542E-10" ixz="-2.56308956479191E-24" iyy="5.32909624413147E-09" iyz="-1.61090078229413E-23" izz="1.00191924882629E-08" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_imu_link_00.obj" />
+      </geometry>
+      <material name="ranger_imu_link_00">
+        <color rgba="1 1 1 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_imu_joint" type="fixed">
+    <origin xyz="-0.00269279932190335 0.117006197251626 0.172572605714962" rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent link="ranger_base_link" />
+    <child link="ranger_imu_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="ranger_front_lidar_link">
+    <inertial>
+      <origin xyz="-0.0024322542360638 -7.57434565393234E-06 -0.0156647798701829" rpy="0 0 0" />
+      <mass value="0.0269222563572699" />
+      <inertia ixx="9.62972066845586E-06" ixy="-6.69475455049995E-10" ixz="2.48281613499449E-08" iyy="9.64981682902064E-06" iyz="-1.43263267252535E-11" izz="1.74096865451407E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_front_lidar_link_00.obj" />
+      </geometry>
+      <material name="ranger_front_lidar_link_00">
+        <color rgba="0.113725 0.113725 0.113725 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_front_lidar_link_01.obj" />
+      </geometry>
+      <material name="ranger_front_lidar_link_01">
+        <color rgba="0.176471 0.176471 0.176471 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_front_lidar_link_02.obj" />
+      </geometry>
+      <material name="ranger_front_lidar_link_02">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_front_lidar_joint" type="fixed">
+    <origin xyz="0.2 -0.175 0.268" rpy="0 0 -0.78539816339746" />
+    <parent link="ranger_base_link" />
+    <child link="ranger_front_lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="ranger_back_lidar_link">
+    <inertial>
+      <origin xyz="-0.00243225423607701 -7.57434566700521E-06 -0.0156647798701824" rpy="0 0 0" />
+      <mass value="0.0269222563572854" />
+      <inertia ixx="9.62972066845615E-06" ixy="-6.69475455080912E-10" ixz="2.4828161349934E-08" iyy="9.64981682902092E-06" iyz="-1.43263267611196E-11" izz="1.74096865451409E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_back_lidar_link_00.obj" />
+      </geometry>
+      <material name="ranger_back_lidar_link_00">
+        <color rgba="0.137255 0.137255 0.137255 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_back_lidar_link_01.obj" />
+      </geometry>
+      <material name="ranger_back_lidar_link_01">
+        <color rgba="0.172549 0.172549 0.172549 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_back_lidar_link_02.obj" />
+      </geometry>
+      <material name="ranger_back_lidar_link_02">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_back_lidar_joint" type="fixed">
+    <origin xyz="-0.199999999999958 0.174999999999997 0.268" rpy="0 0 2.35619449019234" />
+    <parent link="ranger_base_link" />
+    <child link="ranger_back_lidar_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="ranger_camera_link">
+    <inertial>
+      <origin xyz="-0.00781360439226064 -4.62643811109874E-05 0.00015691163838176" rpy="0 0 0" />
+      <mass value="0.0189598021123256" />
+      <inertia ixx="1.09290416951151E-05" ixy="5.74101407704989E-09" ixz="-2.17154464045429E-08" iyy="1.72930174582617E-06" iyz="-8.47818936297681E-09" izz="1.0379713403702E-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_camera_link_00.obj" />
+      </geometry>
+      <material name="ranger_camera_link_00">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_camera_link_01.obj" />
+      </geometry>
+      <material name="ranger_camera_link_01">
+        <color rgba="0.058824 0.058824 0.058824 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_camera_link_02.obj" />
+      </geometry>
+      <material name="ranger_camera_link_02">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_camera_joint" type="fixed">
+    <origin xyz="0.264320690911 0 0.169753030571818" rpy="0 -0.139626340159547 0" />
+    <parent link="ranger_base_link" />
+    <child link="ranger_camera_link" />
+    <axis xyz="0 0 0" />
+  </joint>
+  <link name="ranger_fl_steering_link">
+    <inertial>
+      <origin xyz="-4.41226727665167E-05 0.0157129719167315 0.00410410320602114" rpy="0 0 0" />
+      <mass value="0.935307991635668" />
+      <inertia ixx="0.00108568401565883" ixy="7.743516771268E-08" ixz="-2.33490054511026E-07" iyy="0.00106453940002428" iyz="-0.000235815859378652" izz="0.0012538948846579" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius=".032" length=".04" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fl_steering_link_00.obj" />
+      </geometry>
+      <material name="ranger_fl_steering_link_00">
+        <color rgba="0.172549 0.172549 0.172549 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fl_steering_link_01.obj" />
+      </geometry>
+      <material name="ranger_fl_steering_link_01">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_fl_steering_joint" type="continuous">
+    <origin xyz="0.194 0.169 .1355" rpy="-3.14159265358979 0 0" />
+    <parent link="ranger_base_link" />
+    <child link="ranger_fl_steering_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="60" velocity="1.5" />
+    <dynamics damping=".02" friction=".01" />
+  </joint>
+  <link name="ranger_fl_wheel_link">
+    <inertial>
+      <origin xyz="2.77555756156289E-17 2.77555756156289E-17 -0.000252801407574443" rpy="0 0 0" />
+      <mass value="0.741126743204084" />
+      <inertia ixx="0.000890769648192525" ixy="-5.4135978102862E-25" ixz="2.83258046844794E-20" iyy="0.000890761023713873" iyz="-4.04095046703963E-20" izz="0.00113190510709934" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius=".0605" length=".051" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fl_wheel_link_00.obj" />
+      </geometry>
+      <material name="ranger_fl_wheel_link_00">
+        <color rgba="0.164706 0.164706 0.164706 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fl_wheel_link_01.obj" />
+      </geometry>
+      <material name="ranger_fl_wheel_link_01">
+        <color rgba="0.760784 0.760784 0.760784 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_fl_wheel_joint" type="continuous">
+    <origin xyz="0 0 0.0749999999999999" rpy="1.5707963267949 0 0" />
+    <parent link="ranger_fl_steering_link" />
+    <child link="ranger_fl_wheel_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="40" velocity="15" />
+    <dynamics damping=".02" friction=".01" />
+  </joint>
+  <link name="ranger_fr_steering_link">
+    <inertial>
+      <origin xyz="4.41226727666E-05 -0.0157129719167314 0.00410410320602098" rpy="0 0 0" />
+      <mass value="0.93530799163567" />
+      <inertia ixx="0.00108568401565883" ixy="7.74351677124048E-08" ixz="2.33490054510254E-07" iyy="0.00106453940002428" iyz="0.000235815859378651" izz="0.0012538948846579" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius=".032" length=".04" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fr_steering_link_00.obj" />
+      </geometry>
+      <material name="ranger_fr_steering_link_00">
+        <color rgba="0.176471 0.176471 0.176471 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fr_steering_link_01.obj" />
+      </geometry>
+      <material name="ranger_fr_steering_link_01">
+        <color rgba="0.65098 0.65098 0.65098 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fr_steering_link_02.obj" />
+      </geometry>
+      <material name="ranger_fr_steering_link_02">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_fr_steering_joint" type="continuous">
+    <origin xyz="0.194 -0.169 .1355" rpy="3.14159265358979 0 0" />
+    <parent link="ranger_base_link" />
+    <child link="ranger_fr_steering_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="60" velocity="1.5" />
+    <dynamics damping=".02" friction=".01" />
+  </joint>
+  <link name="ranger_fr_wheel_link">
+    <inertial>
+      <origin xyz="2.77555756156289E-17 2.77555756156289E-17 0.000252801407574443" rpy="0 0 0" />
+      <mass value="0.741126743204084" />
+      <inertia ixx="0.000890769648192525" ixy="2.66918709362604E-24" ixz="2.16085103308491E-20" iyy="0.000890761023713874" iyz="6.4878824945206E-20" izz="0.00113190510709934" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius=".0605" length=".051" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fr_wheel_link_00.obj" />
+      </geometry>
+      <material name="ranger_fr_wheel_link_00">
+        <color rgba="0.164706 0.164706 0.164706 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_fr_wheel_link_01.obj" />
+      </geometry>
+      <material name="ranger_fr_wheel_link_01">
+        <color rgba="0.760784 0.760784 0.760784 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_fr_wheel_joint" type="continuous">
+    <origin xyz="0 0 0.0749999999999999" rpy="1.5707963267949 0 0" />
+    <parent link="ranger_fr_steering_link" />
+    <child link="ranger_fr_wheel_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="40" velocity="15" />
+    <dynamics damping=".02" friction=".01" />
+  </joint>
+  <link name="ranger_rr_steering_link">
+    <inertial>
+      <origin xyz="4.41226716285104E-05 -0.0157129719156636 0.0041041032048897" rpy="0 0 0" />
+      <mass value="0.935307991753156" />
+      <inertia ixx="0.0010856840156653" ixy="7.74351596728921E-08" ixz="2.33490057369179E-07" iyy="0.00106453940003436" iyz="0.000235815859380944" izz="0.00125389488467438" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius=".032" length=".04" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_rr_steering_link_00.obj" />
+      </geometry>
+      <material name="ranger_rr_steering_link_00">
+        <color rgba="0.172549 0.172549 0.172549 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_rr_steering_link_01.obj" />
+      </geometry>
+      <material name="ranger_rr_steering_link_01">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_rr_steering_joint" type="continuous">
+    <origin xyz="-0.194 -0.169 .1355" rpy="3.14159265358979 0 0" />
+    <parent link="ranger_base_link" />
+    <child link="ranger_rr_steering_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="60" velocity="1.5" />
+    <dynamics damping=".02" friction=".01" />
+  </joint>
+  <link name="ranger_rr_wheel_link">
+    <inertial>
+      <origin xyz="-2.77555756156289E-17 2.77555756156289E-17 0.000252801407574471" rpy="0 0 0" />
+      <mass value="0.741126743204084" />
+      <inertia ixx="0.000890769648192525" ixy="3.99267607366746E-24" ixz="2.79728229390156E-20" iyy="0.000890761023713874" iyz="6.48770386799988E-20" izz="0.00113190510709934" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius=".0605" length=".051" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_rr_wheel_link_00.obj" />
+      </geometry>
+      <material name="ranger_rr_wheel_link_00">
+        <color rgba="0.172549 0.172549 0.172549 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_rr_wheel_link_01.obj" />
+      </geometry>
+      <material name="ranger_rr_wheel_link_01">
+        <color rgba="0.760784 0.760784 0.760784 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_rr_wheel_joint" type="continuous">
+    <origin xyz="0 0 0.0749999999999999" rpy="1.5707963267949 0 0" />
+    <parent link="ranger_rr_steering_link" />
+    <child link="ranger_rr_wheel_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="40" velocity="15" />
+    <dynamics damping=".02" friction=".01" />
+  </joint>
+  <link name="ranger_rl_steering_link">
+    <inertial>
+      <origin xyz="-4.41226727664334E-05 0.0157129719167315 0.00410410320602111" rpy="0 0 0" />
+      <mass value="0.935307991635669" />
+      <inertia ixx="0.00108568401565883" ixy="7.74351677138188E-08" ixz="-2.3349005451069E-07" iyy="0.00106453940002428" iyz="-0.000235815859378651" izz="0.0012538948846579" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0.02" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius=".032" length=".04" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_rl_steering_link_00.obj" />
+      </geometry>
+      <material name="ranger_rl_steering_link_00">
+        <color rgba="0.176471 0.176471 0.176471 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_rl_steering_link_01.obj" />
+      </geometry>
+      <material name="ranger_rl_steering_link_01">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_rl_steering_joint" type="continuous">
+    <origin xyz="-0.194 0.169 .1355" rpy="3.14159265358979 0 0" />
+    <parent link="ranger_base_link" />
+    <child link="ranger_rl_steering_link" />
+    <axis xyz="0 0 -1" />
+    <limit effort="60" velocity="1.5" />
+    <dynamics damping=".02" friction=".01" />
+  </joint>
+  <link name="ranger_rl_wheel_link">
+    <inertial>
+      <origin xyz="0 0 -0.000252801407574471" rpy="0 0 0" />
+      <mass value="0.741126743204084" />
+      <inertia ixx="0.000890769648192525" ixy="-4.04510352288153E-24" ixz="9.43709781956294E-21" iyy="0.000890761023713874" iyz="-1.30478774219597E-19" izz="0.00113190510709935" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius=".0605" length=".051" />
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_rl_wheel_link_00.obj" />
+      </geometry>
+      <material name="ranger_rl_wheel_link_00">
+        <color rgba="0.164706 0.164706 0.164706 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/ranger_rl_wheel_link_01.obj" />
+      </geometry>
+      <material name="ranger_rl_wheel_link_01">
+        <color rgba="0.760784 0.760784 0.760784 1" />
+      </material>
+    </visual>
+  </link>
+  <joint name="ranger_rl_wheel_joint" type="continuous">
+    <origin xyz="0 0 0.0749999999999999" rpy="1.5707963267949 0 0" />
+    <parent link="ranger_rl_steering_link" />
+    <child link="ranger_rl_wheel_link" />
+    <axis xyz="0 0 1" />
+    <limit effort="40" velocity="15" />
+    <dynamics damping=".02" friction=".01" />
+  </joint>
+  <link name="piper_base_link">
+    <inertial>
+      <origin xyz="-0.00473641164191482 2.56829134630247E-05 0.041451518036016" rpy="0 0 0" />
+      <mass value="1.02" />
+      <inertia ixx="0.00267433" ixy="-0.00000073" ixz="-0.00017389" iyy="0.00282612" iyz="0.0000004" izz="0.00089624" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_base_link_00.obj" />
+      </geometry>
+      <material name="piper_base_link_00">
+        <color rgba="0.117647 0.117647 0.117647 1" />
+      </material>
+    </visual>
+    <collision name="piper_base_link_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_base_link_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_base_link_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_base_link_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_base_link_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_base_link_02.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_base_link_hull_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_base_link_03.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_base_link_hull_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_base_link_04.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_base_link_hull_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_base_link_05.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="piper_link1">
+    <inertial>
+      <origin xyz="0.00053 -0.00039 -0.00315" rpy="0 0 0" />
+      <mass value="0.71" />
+      <inertia ixx="0.00050027" ixy="0.00000078" ixz="0.00000626" iyy="0.00040879" iyz="0.00000462" izz="0.00045802" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link1_00.obj" />
+      </geometry>
+      <material name="piper_link1_00">
+        <color rgba="0.117647 0.117647 0.117647 1" />
+      </material>
+    </visual>
+    <collision name="piper_link1_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_02.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_03.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_04.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_05.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_06">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_06.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_07">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_07.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_08">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_08.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_09">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_09.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link1_hull_10">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link1_10.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_joint1" type="revolute">
+    <origin xyz="0 0 0.123" rpy="0 0 3.1415926" />
+    <parent link="piper_base_link" />
+    <child link="piper_link1" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.6179938" upper="2.6179938" effort="100" velocity=".6" />
+    <dynamics damping=".1" friction=".01" />
+  </joint>
+  <link name="piper_link2">
+    <inertial>
+      <origin xyz="0.21856 -0.00859 0.00227" rpy="0 0 0" />
+      <mass value="1.16" />
+      <inertia ixx="0.00111915" ixy="0.00182916" ixz="0.00019233" iyy="0.06763251" iyz="0.00000767" izz="0.067559" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link2_00.obj" />
+      </geometry>
+      <material name="piper_link2_00">
+        <color rgba="0.058824 0.058824 0.058824 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link2_01.obj" />
+      </geometry>
+      <material name="piper_link2_01">
+        <color rgba="0.113725 0.113725 0.113725 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link2_02.obj" />
+      </geometry>
+      <material name="piper_link2_02">
+        <color rgba="0.403922 0.403922 0.403922 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link2_03.obj" />
+      </geometry>
+      <material name="piper_link2_03">
+        <color rgba="0.745098 0.745098 0.745098 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link2_04.obj" />
+      </geometry>
+      <material name="piper_link2_04">
+        <color rgba="0.854902 0.121569 0.121569 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link2_05.obj" />
+      </geometry>
+      <material name="piper_link2_05">
+        <color rgba="0.901961 0.901961 0.901961 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link2_06.obj" />
+      </geometry>
+      <material name="piper_link2_06">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+    <collision name="piper_link2_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_02.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_03.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_04.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_05.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_06">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_06.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_07">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_07.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_08">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_08.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_09">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_09.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link2_hull_10">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link2_10.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_joint2" type="revolute">
+    <origin xyz="0 0 0" rpy="-1.5707963 -3.005806 -3.1415926" />
+    <parent link="piper_link1" />
+    <child link="piper_link2" />
+    <axis xyz="0 0 1" />
+    <limit lower="0" upper="3.1415926" effort="100" velocity=".6" />
+    <dynamics damping=".1" friction=".01" />
+  </joint>
+  <link name="piper_link3">
+    <inertial>
+      <origin xyz="0.2014 -0.00418 -0.00141" rpy="0 0 0" />
+      <mass value="0.67" />
+      <inertia ixx="0.00033471" ixy="0.00026891" ixz="0.00013918" iyy="0.03360411" iyz="0.00000052" izz="0.03356941" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link3_00.obj" />
+      </geometry>
+      <material name="piper_link3_00">
+        <color rgba="0.058824 0.058824 0.058824 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link3_01.obj" />
+      </geometry>
+      <material name="piper_link3_01">
+        <color rgba="0.121569 0.121569 0.121569 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link3_02.obj" />
+      </geometry>
+      <material name="piper_link3_02">
+        <color rgba="0.4 0.4 0.4 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link3_03.obj" />
+      </geometry>
+      <material name="piper_link3_03">
+        <color rgba="0.780392 0.168627 0.168627 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link3_04.obj" />
+      </geometry>
+      <material name="piper_link3_04">
+        <color rgba="0.901961 0.901961 0.901961 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link3_05.obj" />
+      </geometry>
+      <material name="piper_link3_05">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+    <collision name="piper_link3_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_02.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_03.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_04.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_05.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_06">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_06.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_07">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_07.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_08">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_08.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_09">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_09.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_10">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_10.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_11">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_11.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_12">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_12.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_13">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_13.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_14">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_14.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_15">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_15.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_16">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_16.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_17">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_17.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_18">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_18.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_19">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_19.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_20">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_20.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_21">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_21.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_22">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_22.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link3_hull_23">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link3_23.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_joint3" type="revolute">
+    <origin xyz="0.28503 0 0" rpy="0 0 2.8380798" />
+    <parent link="piper_link2" />
+    <child link="piper_link3" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.9670597" upper="0" effort="100" velocity=".6" />
+    <dynamics damping=".1" friction=".01" />
+  </joint>
+  <link name="piper_link4">
+    <inertial>
+      <origin xyz="0.059 -0.05831 0.002" rpy="0 0 0" />
+      <mass value="0.39" />
+      <inertia ixx="0.00120173" ixy="0.00138165" ixz="0.00001187" iyy="0.00209324" iyz="0.00000217" izz="0.00307814" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link4_00.obj" />
+      </geometry>
+      <material name="piper_link4_00">
+        <color rgba="0.117647 0.117647 0.117647 1" />
+      </material>
+    </visual>
+    <collision name="piper_link4_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link4_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link4_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link4_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link4_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link4_02.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link4_hull_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link4_03.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link4_hull_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link4_04.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link4_hull_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link4_05.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link4_hull_06">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link4_06.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link4_hull_07">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link4_07.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_joint4" type="revolute">
+    <origin xyz="0.27364 0 0" rpy="0 0 0.0806342" />
+    <parent link="piper_link3" />
+    <child link="piper_link4" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.553343" upper="1.553343" effort="100" velocity=".6" />
+    <dynamics damping=".1" friction=".01" />
+  </joint>
+  <link name="piper_link5">
+    <inertial>
+      <origin xyz="0.00005 -0.01282 -0.00429" rpy="0 0 0" />
+      <mass value="0.35" />
+      <inertia ixx="0.00022660" ixy="0.00000019" ixz="0.00000005" iyy="0.00017740" iyz="0.00000085" izz="0.00019425" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link5_00.obj" />
+      </geometry>
+      <material name="piper_link5_00">
+        <color rgba="0.117647 0.117647 0.117647 1" />
+      </material>
+    </visual>
+    <collision name="piper_link5_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_02.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_03.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_04">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_04.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_05">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_05.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_06">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_06.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_07">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_07.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_08">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_08.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_09">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_09.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_10">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_10.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_11">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_11.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_12">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_12.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_13">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_13.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_14">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_14.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_15">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_15.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link5_hull_16">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link5_16.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_joint5" type="revolute">
+    <origin xyz="0.07466 0 0" rpy="-1.5707963 1.5707963 0" />
+    <parent link="piper_link4" />
+    <child link="piper_link5" />
+    <axis xyz="0 0 1" />
+    <limit lower="-1.553343" upper="1.553343" effort="100" velocity=".6" />
+    <dynamics damping=".1" friction=".01" />
+  </joint>
+  <link name="piper_link6">
+    <inertial>
+      <origin xyz="0.00134940815 0 -0.00344975303" rpy="0 0 0" />
+      <mass value="0.01655408133" />
+      <inertia ixx="1.52476803967e-6" ixy="0" ixz="1.0017156778e-7" iyy="1.51721319881e-6" iyz="0" izz="2.84541364481e-6" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_link6_00.obj" />
+      </geometry>
+      <material name="piper_link6_00">
+        <color rgba="0.117647 0.117647 0.117647 1" />
+      </material>
+    </visual>
+    <collision name="piper_link6_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link6_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link6_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link6_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link6_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link6_02.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_link6_hull_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_link6_03.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_joint6" type="revolute">
+    <origin xyz="0 -0.035 0" rpy="1.5707963 0 0" />
+    <parent link="piper_link5" />
+    <child link="piper_link6" />
+    <axis xyz="0 0 1" />
+    <limit lower="-2.9670597" upper="2.9670597" effort="100" velocity=".6" />
+    <dynamics damping=".1" friction=".01" />
+  </joint>
+  <link name="piper_flange_link">
+    <inertial>
+      <origin xyz="1.151691e-03 0.782428e-03 4.798051e-03" rpy="0 0 0" />
+      <mass value="0.04" />
+      <inertia ixx="9.935389e-06" ixy="0.0" ixz="0.0" iyy="10.508003e-06" iyz="0.0" izz="19.652873e-06" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_flange_link_00.obj" />
+      </geometry>
+      <material name="piper_flange_link_00">
+        <color rgba="0.114435 0.114435 0.114435 1" />
+      </material>
+    </visual>
+    <collision name="piper_flange_link_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_flange_link_00.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_flange_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="piper_link6" />
+    <child link="piper_flange_link" />
+  </joint>
+  <link name="piper_gripper_base">
+    <inertial>
+      <origin xyz="-0.000183807162235591 8.05033155577911E-05 0.0321436689908876" rpy="0 0 0" />
+      <mass value="0.45" />
+      <inertia ixx="0.000466573035886" ixy="0" ixz="0" iyy="0.000208671755285" iyz="0" izz="0.000443517627645" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_gripper_base_00.obj" />
+      </geometry>
+      <material name="piper_gripper_base_00">
+        <color rgba="0.114435 0.114435 0.114435 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_gripper_base_01.obj" />
+      </geometry>
+      <material name="piper_gripper_base_01">
+        <color rgba="0.784314 0.784314 0.784314 1" />
+      </material>
+    </visual>
+    <collision name="piper_gripper_base_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_base_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_gripper_base_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_base_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_gripper_base_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_base_02.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_gripper_base_hull_03">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_base_03.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_gripper_base_joint" type="fixed">
+    <origin xyz="0 0 0.0045" rpy="0 0 1.5707963" />
+    <parent link="piper_flange_link" />
+    <child link="piper_gripper_base" />
+  </joint>
+  <link name="piper_gripper_link1">
+    <inertial>
+      <origin xyz="0.00065123185041968 -0.0491929869131989 0.00972258769184025" rpy="0 0 0" />
+      <mass value="0.025" />
+      <inertia ixx="1.0831334372e-05" ixy="3.32108655243e-07" ixz="-5.17776964242e-08" iyy="5.43941050918e-06" iyz="1.75746071559e-06" izz="1.41828415054e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_gripper_link1_00.obj" />
+      </geometry>
+      <material name="piper_gripper_link1_00">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_gripper_link1_01.obj" />
+      </geometry>
+      <material name="piper_gripper_link1_01">
+        <color rgba="0.117647 0.117647 0.117647 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_gripper_link1_02.obj" />
+      </geometry>
+      <material name="piper_gripper_link1_02">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+    <collision name="piper_gripper_link1_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_link1_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_gripper_link1_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_link1_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_gripper_link1_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_link1_02.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_gripper_joint1" type="prismatic">
+    <origin xyz="0 0 0.138" rpy="1.5707963 0 0" />
+    <parent link="piper_gripper_base" />
+    <child link="piper_gripper_link1" />
+    <axis xyz="0 0 1" />
+    <limit lower="-0.0005" upper="0.0505" effort="10" velocity=".05" />
+    <dynamics damping=".1" friction=".01" />
+  </joint>
+  <link name="piper_gripper_link2">
+    <inertial>
+      <origin xyz="0.00065123185041968 -0.0491929869131989 0.00972258769184025" rpy="0 0 0" />
+      <mass value="0.025" />
+      <inertia ixx="1.0831334372e-05" ixy="3.32108655243e-07" ixz="-5.17776964242e-08" iyy="5.43941050918e-06" iyz="1.75746071559e-06" izz="1.41828415054e-05" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_gripper_link2_00.obj" />
+      </geometry>
+      <material name="piper_gripper_link2_00">
+        <color rgba="0 0 0 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_gripper_link2_01.obj" />
+      </geometry>
+      <material name="piper_gripper_link2_01">
+        <color rgba="0.117647 0.117647 0.117647 1" />
+      </material>
+    </visual>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/visual/piper_gripper_link2_02.obj" />
+      </geometry>
+      <material name="piper_gripper_link2_02">
+        <color rgba="0.980392 0.980392 0.980392 1" />
+      </material>
+    </visual>
+    <collision name="piper_gripper_link2_hull_00">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_link2_00.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_gripper_link2_hull_01">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_link2_01.obj" />
+      </geometry>
+    </collision>
+    <collision name="piper_gripper_link2_hull_02">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/collision/piper_gripper_link2_02.obj" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="piper_gripper_joint2" type="prismatic">
+    <origin xyz="0 0 0.138" rpy="1.5707963 0 -3.1415926" />
+    <parent link="piper_gripper_base" />
+    <child link="piper_gripper_link2" />
+    <axis xyz="0 0 -1" />
+    <limit lower="-0.0505" upper="0.0005" effort="10" velocity=".05" />
+    <dynamics damping=".1" friction=".01" />
+  </joint>
+  <link name="piper_tcp" />
+  <joint name="piper_tcp_joint" type="fixed">
+    <parent link="piper_gripper_base" />
+    <child link="piper_tcp" />
+    <origin xyz="0 0 0.120" rpy="0 0 0" />
+  </joint>
+  <link name="ranger_arm_mount">
+    <visual>
+      <origin xyz="0 0 -.005" rpy="0 0 0" />
+      <geometry>
+        <box size=".14 .14 .01" />
+      </geometry>
+      <material name="mount_aluminium">
+        <color rgba=".42 .45 .48 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 -.005" rpy="0 0 0" />
+      <geometry>
+        <box size=".14 .14 .01" />
+      </geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 -.005" rpy="0 0 0" />
+      <mass value="0.5" />
+      <inertia ixx="0.0008208333333333335" iyy="0.0008208333333333335" izz="0.0016333333333333336" ixy="0" ixz="0" iyz="0" />
+    </inertial>
+  </link>
+  <joint name="ranger_mount_joint" type="fixed">
+    <parent link="ranger_base_link" />
+    <child link="ranger_arm_mount" />
+    <origin xyz="0 0 .255" rpy="0 0 0" />
+  </joint>
+  <joint name="piper_mount_joint" type="fixed">
+    <parent link="ranger_arm_mount" />
+    <child link="piper_base_link" />
+    <origin xyz="0 0 0" rpy="0 0 0" />
+  </joint>
+</robot>

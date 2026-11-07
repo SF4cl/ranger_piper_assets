@@ -1,0 +1,328 @@
+{
+  "name": "ranger_air_piper_x_v1",
+  "units": {
+    "length": "m",
+    "angle": "rad",
+    "mass": "kg"
+  },
+  "root_link": "ranger_base_link",
+  "tcp_link": "piper_tcp",
+  "spawn_height_m": 0.008,
+  "groups": {
+    "steering": [
+      "ranger_fl_steering_joint",
+      "ranger_fr_steering_joint",
+      "ranger_rl_steering_joint",
+      "ranger_rr_steering_joint"
+    ],
+    "wheels": [
+      "ranger_fl_wheel_joint",
+      "ranger_fr_wheel_joint",
+      "ranger_rl_wheel_joint",
+      "ranger_rr_wheel_joint"
+    ],
+    "arm": [
+      "piper_joint1",
+      "piper_joint2",
+      "piper_joint3",
+      "piper_joint4",
+      "piper_joint5",
+      "piper_joint6"
+    ],
+    "gripper": [
+      "piper_gripper_joint1",
+      "piper_gripper_joint2"
+    ]
+  },
+  "base": {
+    "wheel_radius_m": 0.0605,
+    "wheel_xy_m": [
+      [
+        0.194,
+        0.169
+      ],
+      [
+        0.194,
+        -0.169
+      ],
+      [
+        -0.194,
+        0.169
+      ],
+      [
+        -0.194,
+        -0.169
+      ]
+    ],
+    "steering_sign": [
+      1,
+      1,
+      1,
+      -1
+    ],
+    "drive_sign": [
+      -1,
+      -1,
+      1,
+      -1
+    ]
+  },
+  "gripper": {
+    "opening_range_m": [
+      0.0,
+      0.1
+    ],
+    "joint_mapping": [
+      "opening / 2",
+      "-opening / 2"
+    ]
+  },
+  "initial_positions": {
+    "ranger_fl_steering_joint": 0.0,
+    "ranger_fl_wheel_joint": 0.0,
+    "ranger_fr_steering_joint": 0.0,
+    "ranger_fr_wheel_joint": 0.0,
+    "ranger_rr_steering_joint": 0.0,
+    "ranger_rr_wheel_joint": 0.0,
+    "ranger_rl_steering_joint": 0.0,
+    "ranger_rl_wheel_joint": 0.0,
+    "piper_joint1": 0.0,
+    "piper_joint2": 0.6,
+    "piper_joint3": -1.2,
+    "piper_joint4": 0.0,
+    "piper_joint5": 0.6,
+    "piper_joint6": 0.0,
+    "piper_gripper_joint1": 0.02,
+    "piper_gripper_joint2": -0.02
+  },
+  "drives": {
+    "ranger_fl_steering_joint": {
+      "mode": "position",
+      "kp": 250,
+      "kd": 25,
+      "effort": 60.0,
+      "velocity": 1.5
+    },
+    "ranger_fl_wheel_joint": {
+      "mode": "velocity",
+      "kp": 0,
+      "kd": 12,
+      "effort": 40.0,
+      "velocity": 15.0
+    },
+    "ranger_fr_steering_joint": {
+      "mode": "position",
+      "kp": 250,
+      "kd": 25,
+      "effort": 60.0,
+      "velocity": 1.5
+    },
+    "ranger_fr_wheel_joint": {
+      "mode": "velocity",
+      "kp": 0,
+      "kd": 12,
+      "effort": 40.0,
+      "velocity": 15.0
+    },
+    "ranger_rr_steering_joint": {
+      "mode": "position",
+      "kp": 250,
+      "kd": 25,
+      "effort": 60.0,
+      "velocity": 1.5
+    },
+    "ranger_rr_wheel_joint": {
+      "mode": "velocity",
+      "kp": 0,
+      "kd": 12,
+      "effort": 40.0,
+      "velocity": 15.0
+    },
+    "ranger_rl_steering_joint": {
+      "mode": "position",
+      "kp": 250,
+      "kd": 25,
+      "effort": 60.0,
+      "velocity": 1.5
+    },
+    "ranger_rl_wheel_joint": {
+      "mode": "velocity",
+      "kp": 0,
+      "kd": 12,
+      "effort": 40.0,
+      "velocity": 15.0
+    },
+    "piper_joint1": {
+      "mode": "position",
+      "kp": 1600,
+      "kd": 80,
+      "effort": 100.0,
+      "velocity": 0.6
+    },
+    "piper_joint2": {
+      "mode": "position",
+      "kp": 1600,
+      "kd": 80,
+      "effort": 100.0,
+      "velocity": 0.6
+    },
+    "piper_joint3": {
+      "mode": "position",
+      "kp": 1600,
+      "kd": 80,
+      "effort": 100.0,
+      "velocity": 0.6
+    },
+    "piper_joint4": {
+      "mode": "position",
+      "kp": 1600,
+      "kd": 80,
+      "effort": 100.0,
+      "velocity": 0.6
+    },
+    "piper_joint5": {
+      "mode": "position",
+      "kp": 1600,
+      "kd": 80,
+      "effort": 100.0,
+      "velocity": 0.6
+    },
+    "piper_joint6": {
+      "mode": "position",
+      "kp": 1600,
+      "kd": 80,
+      "effort": 100.0,
+      "velocity": 0.6
+    },
+    "piper_gripper_joint1": {
+      "mode": "position",
+      "kp": 800,
+      "kd": 15,
+      "effort": 10.0,
+      "velocity": 0.05
+    },
+    "piper_gripper_joint2": {
+      "mode": "position",
+      "kp": 800,
+      "kd": 15,
+      "effort": 10.0,
+      "velocity": 0.05
+    }
+  },
+  "collision_exclusions": [
+    [
+      "piper_base_link",
+      "piper_link1"
+    ],
+    [
+      "piper_base_link",
+      "ranger_arm_mount"
+    ],
+    [
+      "piper_base_link",
+      "ranger_base_link"
+    ],
+    [
+      "piper_flange_link",
+      "piper_gripper_base"
+    ],
+    [
+      "piper_flange_link",
+      "piper_link6"
+    ],
+    [
+      "piper_gripper_base",
+      "piper_gripper_link1"
+    ],
+    [
+      "piper_gripper_base",
+      "piper_gripper_link2"
+    ],
+    [
+      "piper_gripper_base",
+      "piper_link6"
+    ],
+    [
+      "piper_gripper_link1",
+      "piper_gripper_link2"
+    ],
+    [
+      "piper_link1",
+      "piper_link2"
+    ],
+    [
+      "piper_link2",
+      "piper_link3"
+    ],
+    [
+      "piper_link3",
+      "piper_link4"
+    ],
+    [
+      "piper_link4",
+      "piper_link5"
+    ],
+    [
+      "piper_link5",
+      "piper_link6"
+    ],
+    [
+      "ranger_arm_mount",
+      "ranger_base_link"
+    ],
+    [
+      "ranger_base_link",
+      "ranger_fl_steering_link"
+    ],
+    [
+      "ranger_base_link",
+      "ranger_fl_wheel_link"
+    ],
+    [
+      "ranger_base_link",
+      "ranger_fr_wheel_link"
+    ],
+    [
+      "ranger_base_link",
+      "ranger_rl_wheel_link"
+    ],
+    [
+      "ranger_base_link",
+      "ranger_rr_wheel_link"
+    ],
+    [
+      "ranger_base_link",
+      "ranger_fr_steering_link"
+    ],
+    [
+      "ranger_base_link",
+      "ranger_rl_steering_link"
+    ],
+    [
+      "ranger_base_link",
+      "ranger_rr_steering_link"
+    ],
+    [
+      "ranger_fl_steering_link",
+      "ranger_fl_wheel_link"
+    ],
+    [
+      "ranger_fr_steering_link",
+      "ranger_fr_wheel_link"
+    ],
+    [
+      "ranger_rl_steering_link",
+      "ranger_rl_wheel_link"
+    ],
+    [
+      "ranger_rr_steering_link",
+      "ranger_rr_wheel_link"
+    ]
+  ],
+  "sensor_frames_only": [
+    "ranger_front_lidar_link",
+    "ranger_back_lidar_link",
+    "ranger_camera_link",
+    "ranger_imu_link"
+  ]
+}
